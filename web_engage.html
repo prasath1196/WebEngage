@@ -1,0 +1,349 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+
+  // Function tp get the value of a field name from url
+  // Input: field name
+  // Output: Value of the field
+  function get_query_value(field)
+  {
+    var href = window.location.href;
+    var reg = new RegExp('[?&]' + field + '=([^&#]*)', 'i');
+    var value = reg.exec(href);
+    return value ? value[1] : null;
+  }
+
+  //Checks the radio button with the specifield value
+  //Input: value of the radio button to be checked
+  //Output: The radio button with the id "radio-(value passed)" is checked
+  function set_radio_button(value)
+  {
+    if (value != null) {
+      document.getElementById('radio-'+value).checked =true;
+    }
+  }
+
+  // Function to check whether the browser is in private mode
+  // Takes a call back function as input and returns boolean as output
+  // Works only on chrome
+  function detectIncognitoMode(callback) {
+    var is_private;
+    if (window.webkitRequestFileSystem) {
+       window.webkitRequestFileSystem(
+        window.TEMPORARY, 1,
+        callback.bind(undefined,false),
+        callback.bind(undefined,true)
+      );
+    }
+  }
+
+  //Function to stop other radio buttons getting selected
+  //Takes a value as input and prevents click of all other radio buttons except that
+  function add_event_listeners(selected_value) {
+    if(selected_value!=null){
+      $("input:radio").click(function (e) {
+        if(e.currentTarget.value != selected_value)
+          e.preventDefault();
+      })
+    }
+    }
+
+  // Call the detectIncognitoMode function on document ready
+  $('document').ready(function () {
+  detectIncognitoMode(function (isIncognito) {
+      if (isIncognito) {
+      }
+      //If the browser is not in incognito mode, then
+      //  1) Check for 'ayush' in query parameters and get the value
+      //  2) Check the corresponding radio button
+      //  3) Prevent checking of other radio buttons
+      else {
+        var query_value = get_query_value("ayush");
+        set_radio_button(query_value);
+        add_event_listeners(query_value);
+        }
+      })
+    })
+</script>
+<style>
+
+  #rating-form{
+    margin-top:2%;
+    margin-left: 4%;
+  }
+  .radio-button-container{
+    display: inline-block;
+    border: solid 1px;
+    border-radius: 3.5px;
+    padding: 11px;
+  }
+
+  .radio-button{
+    margin-top:5%;
+  }
+
+  input[type=radio]{
+    margin:0;
+  }
+  .button-value{
+    margin-bottom: 1em;
+  }
+
+  .box h3{
+  text-align:center;
+  position:relative;
+  top:80px;
+  }
+  .box {
+  width:70%;
+  height:200px;
+  background:#e4d800;
+  margin:20px auto;
+  }
+
+  .effect2
+  {
+  position: relative;
+  }
+  .effect2:before, .effect2:after
+  {
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width:300px;
+  background: #777;
+  -webkit-box-shadow: 0 15px 10px #777;
+  -moz-box-shadow: 0 15px 10px #777;
+  box-shadow: 0 15px 10px #777;
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+  }
+  .effect2:after
+  {
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  transform: rotate(3deg);
+  right: 10px;
+  left: auto;
+  }
+
+
+  .container-card{
+    height: 21em;
+    max-width: 31em;
+    font-size: 1em;
+    background: #ffff;
+    margin: 20px auto;
+    margin-left: 30%;
+    border-top: solid lightgreen 5px;;
+    position:relative;
+  }
+  .logo-section{
+    background-color: white;
+    margin-top:3%;
+
+  }
+  .responsive-image{
+    max-width:100%;
+    width: 50%;
+    height: auto;
+    margin-left:auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+    display: block;
+  }
+  .content{
+    margin-top:2%;
+  }
+  .card-body{
+    background-color:whitesmoke;
+    padding:1%;
+  }
+  .title-text{
+    font-size:14px;
+    font-weight:600;
+    margin-left: 15%;
+    padding-top:1%;
+  }
+  .body-text{
+    font-size:24px;
+    font-weight: 400;
+    margin-left: 15%;
+    margin-top:2%;
+  }
+  .green-container{
+        background-color: #00d177;
+        border-color: #00d177
+  }
+  .orange-container{
+    border-color: sandybrown;
+    background-color: sandybrown;
+  }
+  .red-container{
+        border-color: tomato;
+        background-color: tomato;
+  }
+  .rating-text{
+    display: inline-block;
+    margin-top:2%;
+    width:100%;
+  }
+  .positive-text{
+    color: darkgreen;
+    font-weight: 600;
+
+  }
+  .negative-text{
+    float:right;
+    color:tomato;
+    font-weight: 600;
+  }
+  .footer-button{
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(52,210,91);
+  display: block;
+  border: none;
+  border-radius: 3px;
+  height: 2.5em;
+  color: white;
+  font-size: 14px;
+  font-weight: 900;
+  }
+  .footer{
+    margin-top:2%;
+  }
+
+
+</style>
+
+<div id="result">
+  <div class ="container-card effect2">
+    <div class ="logo-section">
+      <img src="https://app.retently.com/file/5b8f9f7051004e1d4fbf4f51-1536141011961.png" class="responsive-image">
+    </div>
+    <div class ="card-body">
+      <div class = "content">
+        <div class ="title-text"><p>We're all Ears! Tell us how we did with your order!</p></div>
+        <div class ="body-text">How likely are you to recommend upwardly to a friend or colleague?</div>
+      </div>
+      <div id ="rating-form">
+        <div class="radio-button-container green-container">
+          <div>
+          <div class="button-value">
+            10
+          </div>
+          <div class = "radio-button" >
+            <input type="radio" name="rating" value="10" id="radio-10">
+          </div>
+          </div>
+        </div>
+
+        <div class="radio-button-container green-container">
+          <div class = "button-value">
+            9
+          </div>
+          <div class="radio-button">
+            <input type="radio" name="rating" value="9" id="radio-9">
+          </div>
+        </div>
+
+        <div class = "radio-button-container orange-container">
+          <div class = "button-value">
+            8
+          </div>
+          <div class="radio-button">
+            <input type="radio" name="rating" value="8" id="radio-8">
+          </div>
+        </div>
+
+        <div class = "radio-button-container orange-container">
+          <div class = "button-value">
+            7
+          </div>
+          <div class="radio-button">
+            <input type="radio" name="rating" value="7" id="radio-7">
+          </div>
+        </div>
+
+        <div class="radio-button-container  red-container">
+          <div class="button-value">
+            6
+          </div>
+          <div class="radio-button">
+            <input type="radio" name="rating" value="6" id="radio-6">
+          </div>
+        </div>
+
+        <div class = "radio-button-container red-container">
+          <div class = "button-value">
+            5
+          </div>
+          <div class="radio-button">
+            <input type="radio" name="rating" value="5" id="radio-5">
+          </div>
+        </div>
+
+        <div class = "radio-button-container red-container">
+          <div class ="button-value">4</div>
+          <div class = "radio-button">
+            <input type="radio" name="rating" value="4" id="radio-4">
+          </div>
+        </div>
+
+        <div class = "radio-button-container red-container">
+          <div class = "button-value">
+            3
+          </div>
+          <div class ="radio-button">
+            <input type="radio" name="rating" value="3" id="radio-3">
+          </div>
+        </div>
+
+        <div class = "radio-button-container red-container">
+          <div class ="button-value">
+            2
+          </div>
+          <div class = "radio-button">
+            <input type="radio" name="rating" value="2" id="radio-2">
+          </div>
+        </div>
+
+        <div class = "radio-button-container red-container">
+          <div class = "button-value">
+              1
+          </div>
+          <div class = "radio-button">
+            <input type="radio" name="rating" value="1" id="radio-1">
+          </div>
+        </div>
+
+        <div class = "radio-button-container red-container">
+          <div class = "button-value">
+            0
+          </div>
+          <div class = "radio-button">
+            <input type="radio" name="rating" value="0" id="radio-0">
+          </div>
+        </div>
+      </div>
+      <div class="rating-text">
+        <span class="positive-text">Very Likely</span>
+        <span class="negative-text">Not Likely</span>
+      </div>
+
+    </div>
+    <div class="footer">
+      <button class="footer-button">Submit</button>
+    </div>
+  </div>
+</div>
