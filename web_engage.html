@@ -66,6 +66,11 @@
 </script>
 <style>
 
+  @media only screen and (min-device-width : 481px) {
+    .mobile {
+      display:none;
+    }
+  }
   #rating-form{
     margin-top:2%;
     margin-left: 4%;
@@ -86,6 +91,7 @@
   }
   .button-value{
     margin-bottom: 1em;
+    margin-left: 5%;
   }
 
   .box h3{
@@ -224,6 +230,52 @@
   }
 
 
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  .desktop {
+    display: none;
+  }
+  .radio-button-container{
+  border: solid 1px;
+  border-radius: 3.5px;
+  padding: 11px;
+  display:block;
+  }
+  .m-align-buttons{
+    margin-left: 43%;
+  }
+  .radio-button{
+    margin-top: 5%;
+    margin-left: 4%;
+  }
+  .button-value{
+    margin-bottom: 1em;
+    margin-left: 5%;
+    font-size:15px;
+  }
+    .title-text{
+    font-size:20px;
+    font-weight:600;
+    margin-left: 15%;
+    padding-top:1%;
+    }
+ .rating-text{
+ display: inline-block;
+ margin-top:2%;
+ width:100%;
+ font-size:20px;
+ }
+ .footer-button{
+   font-size: 24px;
+ }
+ .container-card{
+   max-width:37em;
+ }
+ .body-text{
+   font-size:28px;
+ }
+
+}
+
 </style>
 
 <div id="result">
@@ -236,7 +288,7 @@
         <div class ="title-text"><p>We're all Ears! Tell us how we did with your order!</p></div>
         <div class ="body-text">How likely are you to recommend upwardly to a friend or colleague?</div>
       </div>
-      <div id ="rating-form">
+      <div id ="rating-form" class ="desktop">
         <div class="radio-button-container green-container">
           <div>
           <div class="button-value">
@@ -333,6 +385,126 @@
           </div>
           <div class = "radio-button">
             <input type="radio" name="rating" value="0" id="radio-0">
+          </div>
+        </div>
+      </div>
+      <div id="rating-form" class ="mobile">
+        <div class="radio-button-container green-container">
+          <div class ="m-align-buttons">
+            <div class="button-value">
+              10
+            </div>
+          <div class="radio-button">
+            <input type="radio" name="rating" value="10" id="radio-10">
+          </div>
+          </div>
+        </div>
+
+        <div class="radio-button-container green-container">
+          <div class="m-align-buttons">
+          <div class="button-value">
+            9
+          </div>
+          <div class="radio-button">
+            <input type="radio" name="rating" value="9" id="radio-9">
+          </div>
+          </div>
+        </div>
+
+        <div class="radio-button-container orange-container">
+          <div class="m-align-buttons">
+          <div class="button-value">
+            8
+          </div>
+          <div class="radio-button">
+            <input type="radio" name="rating" value="8" id="radio-8">
+          </div>
+          </div>
+        </div>
+
+        <div class="radio-button-container orange-container">
+          <div class="m-align-buttons">
+          <div class="button-value">
+            7
+          </div>
+          <div class="radio-button">
+            <input type="radio" name="rating" value="7" id="radio-7">
+          </div>
+          </div>
+        </div>
+
+        <div class="radio-button-container  red-container">
+          <div class="m-align-buttons">
+          <div class="button-value">
+            6
+          </div>
+          <div class="radio-button">
+            <input type="radio" name="rating" value="6" id="radio-6">
+          </div>
+          </div>
+        </div>
+
+        <div class="radio-button-container red-container">
+          <div class="m-align-buttons">
+          <div class="button-value">
+            5
+          </div>
+          <div class="radio-button">
+            <input type="radio" name="rating" value="5" id="radio-5">
+          </div>
+          </div>
+        </div>
+
+        <div class="radio-button-container red-container">
+          <div class="m-align-buttons">
+          <div class="button-value">4</div>
+          <div class="radio-button">
+            <input type="radio" name="rating" value="4" id="radio-4">
+          </div>
+          </div>
+        </div>
+
+        <div class="radio-button-container red-container">
+          <div class="m-align-buttons">
+          <div class="button-value">
+            3
+          </div>
+          <div class="radio-button">
+            <input type="radio" name="rating" value="3" id="radio-3">
+          </div>
+          </div>
+        </div>
+
+        <div class="radio-button-container red-container">
+          <div class="m-align-buttons">
+          <div class="button-value">
+            2
+          </div>
+          <div class="radio-button">
+            <input type="radio" name="rating" value="2" id="radio-2">
+          </div>
+          </div>
+        </div>
+
+        <div class="radio-button-container red-container">
+          <div class="m-align-buttons">
+          <div class="button-value">
+            1
+          </div>
+          <div class="radio-button">
+            <input type="radio" name="rating" value="1" id="radio-1">
+          </div>
+          </div>
+        </div>
+
+        <div class="radio-button-container red-container">
+          <div class="m-align-buttons">
+          <div class="button-value">
+            0
+          </div>
+          <div class="radio-button">
+            <input type="radio" name="rating" value="0" id="radio-0">
+          </div>
           </div>
         </div>
       </div>
