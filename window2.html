@@ -12,7 +12,10 @@
   // Function to send message to the other Iframe
   // Gets the input value from message_text_box when user clicks Send button and sends the message
   function send_message(){
-    var message_to_be_sent = "Iframe2: "+document.getElementById('message-text').value;
+
+     var text_box = document.getElementById('message-text')
+     var message_to_be_sent = "Iframe2: "+text_box.value;
+     text_box.value = "";
     $('#message-container').append('<p>'+message_to_be_sent+'</p>');
     var target = window.parent.document.getElementById('iframe-1');
     target.contentWindow.postMessage(message_to_be_sent+"\n",'*')
