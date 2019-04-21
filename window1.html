@@ -15,7 +15,7 @@
     var message_to_be_sent = "Iframe1: "+document.getElementById('message-text').value;
     $('#message-container').append('<p>'+message_to_be_sent+'</p>');
     var target = window.parent.document.getElementById('iframe-2');
-    target.contentWindow.postMessage(message_to_be_sent+"\n",'http://172.18.0.1:8080')
+    target.contentWindow.postMessage(message_to_be_sent+"\n",'*')
 
   }
 </script>
