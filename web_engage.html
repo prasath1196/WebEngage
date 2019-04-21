@@ -1,4 +1,4 @@
-<meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 
@@ -253,26 +253,31 @@
     margin-left: 5%;
     font-size:15px;
   }
-    .title-text{
-    font-size:20px;
-    font-weight:600;
-    margin-left: 15%;
-    padding-top:1%;
-    }
+  .title-text{
+  font-size:20px;
+  font-weight:600;
+  margin-left: 15%;
+  padding-top:1%;
+  }
  .rating-text{
  display: inline-block;
  margin-top:2%;
  width:100%;
- font-size:20px;
+ font-size:24px;
+ margin-left:40%;
  }
  .footer-button{
    font-size: 24px;
  }
  .container-card{
    max-width:37em;
+   margin-left:20%;
  }
  .body-text{
    font-size:28px;
+ }
+ .negative-text{
+   float:none;
  }
 
 }
@@ -390,8 +395,12 @@
         </div>
       </div>
       <div id="rating-form" class ="mobile">
+        <div class = "rating-text">
+          <span class="positive-text">Very Likely</span>
+        </div>
         <div class="radio-button-container green-container">
           <div class ="m-align-buttons">
+
             <div class="button-value">
               10
             </div>
@@ -510,7 +519,7 @@
         </div>
       </div>
       <div class="rating-text">
-        <span class="positive-text">Very Likely</span>
+
         <span class="negative-text">Not Likely</span>
       </div>
 
